@@ -115,7 +115,10 @@ const blueProducts = saleProducts.filter(function (e){
 */
 
 //CODE HERE
-
+let orderTotal = blueProducts.reduce(function(acc, curr){
+  return  acc +curr.price
+   
+}, 0)
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
   For these problems we will be using the objects below, contactInfo and shippingInfo,
@@ -145,7 +148,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+let helensInfo = Object.assign({}, contactInfo, shippingInfo)
 ////////////////////PROBLEM 6////////////////////
 /*
   Helen has a daughter named Ellen that lives at the same address.
@@ -154,6 +157,11 @@ const shippingInfo = {
 */
 
 //CODE HERE
+let ellensInfo = {...helensInfo}
+ellensInfo.name = 'Ellen'
+ellensInfo.email = 'ellen@email.com'
+console.log(ellensInfo)
+
 
 ////////////////////PROBLEM 7////////////////////
 /* 
@@ -161,7 +169,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+const {email} = ellensInfo
 ////////////////////PROBLEM 8////////////////////
 /*
   In a single expression (one line), save the zip code and state 
@@ -169,7 +177,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+const {state, zipCode} = shippingInfo
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
   Use the userInfo object below to complete problems 9-11.
@@ -231,7 +239,7 @@ const userInfo = {
 */
 
 //CODE HERE
-
+let shouldAlert = userInfo.settings.alerts
 ////////////////////PROBLEM 10////////////////////
 /*
   Set the value of topic below to the last item in gn@rly_c0der_007's topics array
@@ -239,7 +247,7 @@ const userInfo = {
 */
 
 //CODE HERE
-
+let topic = userInfo.topics[3]
 ////////////////////PROBLEM 11////////////////////
 /*
   Set the value of commenterId below to the userId of the first response to 
@@ -247,7 +255,7 @@ const userInfo = {
 */
 
 //CODE HERE
-
+let commenterId = userInfo.comments[1].responses[0].userId
 ////////////////////PROBLEM 12////////////////////
 /*
   Create an object called 'person' that has the following properties. 
@@ -266,6 +274,29 @@ const userInfo = {
 */
 
 //CODE HERE
+let person = {
+  name: 'Bruce',
+  age: 35,
+  jobs: ['detective', 'vigilante', 'forensics'],
+  birthday: function() {
+    return this.age += 1
+  },
+  favorites: {
+    color: 'mint green',
+    number: 7,
+    book: 'Great Gatsby',
+  },
+    kids: [
+      {
+        name: 'Dick',
+        age: 20
+  },
+      {
+        name: 'Tim',
+        age: 16
+  } 
+  ],
+  }
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
@@ -291,7 +322,7 @@ const workout = {
 //let context1 = myFunc
 //let context1 = window
 //let context1 = global
-// let context1 = workout
+let context1 = workout
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -304,6 +335,6 @@ function myFunc() {
 }
 
 //let context2 = myFunc
-// let context2 = window
+let context2 = window
 //let context2 = global
 //let context2 = workout
